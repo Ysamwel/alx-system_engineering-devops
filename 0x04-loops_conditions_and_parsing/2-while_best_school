@@ -2,7 +2,7 @@
 # A bash script that iterates Best School 10 times using while loop
 
 script=0
-while [$script -lt 10 ]
+while [ $script -lt 10 ]
 do
     echo "Best School"
     ((script++))
