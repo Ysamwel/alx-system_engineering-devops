@@ -1,0 +1,17 @@
+#!/usr/bin/env bash
+# A bash script that loops 10 times using while loop
+# if, else and elif statement
+
+script=0
+while [ $script -lt 10 ]
+    ((script++))
+do
+    if [ $script -eq 4 ]; then
+        echo "bad luck"
+    elif [ $script -eq 8 ]; then
+        echo "good luck"
+    else
+        echo "Best School"
+    fi
+done
+
