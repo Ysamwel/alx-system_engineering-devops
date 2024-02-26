@@ -3,5 +3,5 @@
 
 for ((script = 1; script <= 10; script++))
 do
-  echo "Best School"
+    echo "Best School"
 done
