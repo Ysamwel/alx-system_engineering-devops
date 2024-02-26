@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 # A bash script that iterates Best school 10 times using for loop
 
-for ((i = 1; i <= 10; i++))
+for ((script = 1; script <= 10; script++))
 do
     echo "Best School"
 done
