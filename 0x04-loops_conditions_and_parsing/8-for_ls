@@ -11,5 +11,5 @@
 lists=$(ls)
 
 for script in $lists; do
-echo "$lists" | cut -d '-' -f2
+    echo "$lists" | cut -d '-' -f2
 done
