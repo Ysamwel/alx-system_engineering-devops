@@ -1,0 +1,15 @@
+#!/usr/bin/env bash
+# A bash script that displays numbers using while loop and
+# case statement
+
+script=1
+while [ $script -le 20 ]
+do
+    echo "$script"
+    case $script in
+        "4") echo "bad luck from China";;
+	"9") echo "bad luck from Japan";;
+	"17") echo "bad luck from Italy";;
+    esac
+        ((script++))
+done
