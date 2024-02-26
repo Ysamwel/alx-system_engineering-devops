@@ -8,8 +8,8 @@
 # You must use the for loop (while and until are forbidden)
 # Do not display hidden files
 
-lists=$(ls)
+mylists=$(ls)
 
-for script in $lists; do
-    echo "$lists" | cut -d '-' -f2
+for script in $mylists; do
+    echo "$mylists" | cut -d '-' -f2
 done
