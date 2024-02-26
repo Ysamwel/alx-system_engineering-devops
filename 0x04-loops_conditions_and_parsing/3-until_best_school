@@ -1,0 +1,9 @@
+#!/usr/bin/env bash
+# A bash script that iterates Best School 10 times using until loop
+
+script=0
+until [ $script -eq 10 ]
+do
+    echo "Best School"
+    ((script++))
+done
