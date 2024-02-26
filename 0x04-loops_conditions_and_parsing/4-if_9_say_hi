@@ -1,0 +1,18 @@
+#!/usr/bin/env bash
+# A bash script that iterates Best School 10 times using while loop and writes
+# Hi at the 9th iteration using if statement
+
+script=0
+while [ $script -lt 10 ]
+do
+    ((script++))
+
+    if [ $script -eq 9 ]; then
+        echo "Best School"
+        echo "Hi"
+   else
+        echo "Best Schoo"
+    fi
+done
+
+
