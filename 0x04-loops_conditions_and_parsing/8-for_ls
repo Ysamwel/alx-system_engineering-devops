@@ -8,8 +8,13 @@
 # You must use the for loop (while and until are forbidden)
 # Do not display hidden files
 
-mylists=$(ls)
 
-for script in $mylists; do
-    echo "$mylists" | cut -d '-' -f2
+for file in *; 
+do
+    if [ ! -f "$file" ] || [[ "$file" == .* ]]; then
+        continue
+    fi
+        name_after_dash=$(echo "$file" | cut -d'-' -f2-)
+
+    echo "$name_after_dash"
 done
