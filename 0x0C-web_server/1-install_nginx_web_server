@@ -1,7 +1,14 @@
 #!/usr/bin/env bash
 # Installs nginx server
 apt-get update
-apt-get -y install nginx
-ufw allow 'Nginx HTTP'
-echo "Hello World!" > /var/www/html/index.html
-service nginx start
+apt-get install -y nginx
+
+sed -i 's/^listen\(.*\)80;/listen 80;/' /etc/nginx/sites-available/default
+service nginx restart
+echo "<html><body>Hello World!</body></html>" > /var/www/html/index.html
+curl -s http://localhost/ | grep "Hello World!" > /dev/null
+if [ $? -eq 0 ]; then
+    echo "Nginx is configured properly."
+else
+    echo "Nginx is not configured properly."
+fi
