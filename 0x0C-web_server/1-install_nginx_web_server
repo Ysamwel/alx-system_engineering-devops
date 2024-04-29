@@ -6,6 +6,11 @@ sudo apt-get install -y nginx
 sudo sed -i 's/listen 80 default_server;/listen 80;/' /etc/nginx/sites-available/default
 sudo ufw allow 'Nginx HTTP'
 
-ps aux | grep nginx | grep -v grep >/dev/null || /etc/init.d/nginx start
-echo "Hello World!" > /var/www/html/index.html
+sudo chown -R "$USER":"$USER" /var/www/html
+sudo chmod -R 755 /var/www
+
+cp /var/www/html/index.nginx-debian.html /var/www/html/index.nginx-debian.html.bckp
+
+echo -e "Hello World!" | dd status=none of=/var/www/html/index.nginx-debian.html
+
 sudo service nginx start
