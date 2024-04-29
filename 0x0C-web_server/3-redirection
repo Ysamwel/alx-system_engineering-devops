@@ -1,10 +1,21 @@
 #!/usr/bin/env bash
 
-sudo apt-get update
-sudo apt-get install -y nginx
+#redicts the server
 
-echo "Hello World!" | sudo tee /var/www/html/index.html
-string_for_replacement="server_name _;\n\trewrite ^\/redirect_me https:\/\/www.ysamwel.tech permanently redirect;"
-sudo sed -i "s/server_name _;/$string_for_replacement/" /etc/nginx/sites-enabled/default
+sudo apt-get update -y -qq && \
+         sudo apt-get install nginx -y
+
+sudo service nginx start
+
+sudo ufw allow 'Nginx HTTP'
+
+sudo chown -R "$USER":"$USER" /var/www/html
+sudo chmod -R 755 /var/www
+
+cp /var/www/html/index.nginx-debian.html /var/www/html/index.nginx-debian.html.bckp
+
+echo -e "301 Moved Permanently" > /var/www/html/index.nginx-debian.html
+
+sudo sed -i '24i\       rewrite ^/redirect_me ysamwel.tech permanent;' /etc/nginx/sites-available/default
 
 sudo service nginx restart
