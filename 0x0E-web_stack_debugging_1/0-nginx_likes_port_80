@@ -1,0 +1,24 @@
+#!/usr/bin/env bash
+#a Bash script that configures a server to the above requirements
+if ! command -v nginx &> /dev/null; then
+    echo "Nginx is not installed. Please install Nginx before running this script."
+    exit 1
+fi
+
+sudo sed -i "s/8080/80/" /etc/nginx/sites-enabled/default
+sudo service nginx restart
+
+nginx -t
+
+if [[ $(netstat -tuln | grep ":80") ]]; then
+    echo "Port 80 is already in use. Please stop the conflicting service."
+    exit 1
+fi
+
+service nginx restart
+
+if [[ $(netstat -tuln | grep ":80") ]]; then
+    echo "Nginx is now listening on port 80."
+else
+    echo "Failed to start Nginx on port 80. Please check the logs for errors."
+fi
