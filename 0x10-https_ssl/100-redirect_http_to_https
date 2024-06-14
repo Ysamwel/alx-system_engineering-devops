@@ -49,3 +49,5 @@ backend ysamwel-backend
         balance roundrobin
         server 334005-web-01 54.89.27.117:80 check
         server 334005-web-02 54.236.12.167:80 check
+        server 334005-web-02 100.25.181.205 check
+
